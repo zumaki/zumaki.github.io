@@ -10,6 +10,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+      }
   body {
       font: 20px Montserrat, sans-serif;
       line-height: 1.8;
@@ -22,14 +27,18 @@
       color: #ffffff;
   }
   .bg-2 { 
-      background-color: #474e5d; /* Dark Blue */
-      color: #ffffff;
-  }
-  .bg-3 { 
-      background-color: #ffffff; /* White */
+      background-color: #ffffff; /* Dark Blue */
       color: #555555;
   }
+  .bg-3 { 
+      background-color: #474e5d; /* White */
+      color: #ffffff;
+  }
   .bg-4 { 
+      background-color: #ffffff; /* Black Gray */
+      color: #555555;
+  }
+  .bg-5 { 
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
   }
@@ -82,7 +91,7 @@
 </div>
 
 <!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
+<div class="container-fluid bg-3 text-center">
   <h3 class="margin">Mr.Narong Singpha</h3>
   <p> Up to Me !! </p>
   <a href="#" class="btn btn-default btn-lg">
@@ -90,8 +99,8 @@
   </a>
 </div>
 
-<!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">    
+<!-- Third Container -->
+<div class="container-fluid bg-4 text-center">    
   <h3 class="margin">Mr.Narong Singpha</h3><br>
   <div class="row">
     <div class="col-sm-4">
@@ -109,9 +118,42 @@
   </div>
 </div>
 
+
+<!-- fore Container (Grid) -->
+<div class="container-fluid bg-2 text-center">
+ <!-- Set height and width with CSS -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(16.189732, 100.854508);
+
+function initialize() {
+var mapProp = {
+center:myCenter,
+zoom:12,
+scrollwheel:false,
+draggable:false,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+position:myCenter,
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</div>
+
 <!-- Footer -->
-<footer class="container-fluid bg-4 text-center">
-  <p>Bootstrap Theme Made By <a href="http://www.w3schools.com">www.w3schools.com</a></p> 
+<footer class="container-fluid bg-5 text-center">
+  <p> Zumakikung </p>
 </footer>
 
 </body>
